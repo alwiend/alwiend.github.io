@@ -63,8 +63,16 @@ ul.posts li {
     width: 50%;
 }
 
+.column-auto {
+    width: auto;
+}
+
 .align-right {
     text-align: end;
+}
+
+.contact-info {
+    font-size: .8em;
 }
 
 .contact-info ul {
