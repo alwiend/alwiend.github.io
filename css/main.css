@@ -47,6 +47,12 @@ ul.posts li {
     list-style: none;
 }
 
+hr {
+    height: 1px;
+    background-color: #d5d5d5;
+    border: none;
+}
+
 .section-heading {
     font-size: 1.75rem;
     font-weight: 600;
