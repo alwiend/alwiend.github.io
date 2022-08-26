@@ -71,6 +71,10 @@ hr {
     display: flex;
 }
 
+.row-head {
+    display: flex;
+}
+
 .column {
     width: 50%;
 }
@@ -106,4 +110,15 @@ hr {
 
 .align-bottom {
     align-self: flex-end;
+}
+
+@media (max-width: 1710px) {
+    /* CSS that should be displayed if width is equal to or less than 1710px goes here */
+    .row-head {
+        display: block;
+    }
+    
+    .column-auto: {
+        width: 100%;
+    }
 }
