@@ -33,14 +33,6 @@ p {
     color: #333;
 }
 
-margin-right-auto {
-    margin-right: auto;
-}
-
-align-bottom {
-    align-self: flex-end;
-}
-
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
@@ -95,4 +87,12 @@ ul.posts li {
 .contact-info ul li {
     display: inline;
     margin-right: 20px;
+}
+
+.margin-right-auto {
+    margin-right: auto;
+}
+
+.align-bottom {
+    align-self: flex-end;
 }
