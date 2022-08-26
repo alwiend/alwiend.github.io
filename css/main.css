@@ -33,6 +33,14 @@ p {
     color: #333;
 }
 
+margin-right-auto {
+    margin-right: auto;
+}
+
+align-bottom {
+    align-self: flex-end;
+}
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
