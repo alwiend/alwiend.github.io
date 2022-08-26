@@ -121,4 +121,8 @@ hr {
     .column-auto: {
         width: 100%;
     }
+    
+    .contact-info {
+        font-size: .7em;
+    }
 }
