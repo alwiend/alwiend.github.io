@@ -24,6 +24,7 @@ a:hover {
 
 h1 {
     font-size: 3em;
+    margin: 0;
 }
 
 p {
@@ -79,6 +80,7 @@ ul.posts li {
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    margin: 0.5rem 0;
 }
 
 .contact-info ul li {
