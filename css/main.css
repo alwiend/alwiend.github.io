@@ -138,9 +138,19 @@ hr {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
+.card-container {
+    padding: 20px;
+}
+
 .card-footer {
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.02);
     border: none;
+}
+
+.img-logo {
+    max-height: 100px;
+    width: 100%;
 }
 
 @media (min-width: 1200px) {
