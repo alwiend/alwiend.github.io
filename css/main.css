@@ -1,8 +1,7 @@
 body {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    margin: 60px auto;
-    width: 70%;
 }
+
 nav ul/*, footer ul*/ {
     padding: 0px;
     list-style: none;
@@ -112,15 +111,15 @@ hr {
     align-self: flex-end;
 }
 
+.w-100 {
+    width: 100%;
+}
+
 .experience-logo {
     max-height: 100px;
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-}
-
-.section-container {
-    width: 95%;
 }
 
 .card {
@@ -142,6 +141,20 @@ hr {
     padding: 20px;
 }
 
+.card-header {
+    padding: 20px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 24px;
+}
+
+.card-content ul li {
+    line-height: 200%;
+    list-style-type: disc;
+    margin-left: 24px;
+}
+
 .card-footer {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.02);
@@ -149,7 +162,7 @@ hr {
 }
 
 .img-logo {
-    max-height: 100px;
+    max-height: 55px;
     width: 100%;
 }
 
