@@ -1,104 +1,456 @@
+<!--
 ---
 layout: default
 title: Alwien Dippenaar, Full-Stack Software Developer
 ---
-<div class="blurb">
-	<div class="row-head">
-		<div class="column-auto margin-right-auto">
-			<h1>Hi there, I'm Alwien Dippenaar!</h1>
-		</div>
-		<div class="column-auto align-right align-bottom">
-			<div class="contact-info">
-				<ul>
-					<li><a href="mailto:alwien.dippenaar@hotmail.com">alwien.dippenaar@hotmail.com</a></li>
-					<li><a href="tel:1-250-540-5648">+1 (250) 540-5648</a></li>
-					<li><a href="https://github.com/alwiend" target="_blank">Github</a></li>
-					<li><a href="https://www.linkedin.com/in/alwien-dippenaar/" target="_blank">LinkedIn</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<p>
-		Proven and hardworking software engineer with a Computer Science degree focused on software engineering and 3+ years of experience. As a problem solver 
-		and creative thinker, I never dismiss an idea as impossible if it is attainable with knowledge, time, and effort. My long-term career goal is to work on 
-		a software platform with a large user base, a strong user experience/product and a collaborative team.
-	</p>
-	<hr />
-	<section id="experience" class="section">
-		<div class="section-heading">Work Experience</div>
-		<div class="section-container">
-			<!-- Current Work Experience -->
-			<div class="card">
-				<div class="card-header">
-					<div class="column-auto">
-						<a href="https://tipalti.com/" target="_blank">
-							<img alt="Tipalti Logo" src="/assets/img/tipalti-logo.svg" class="img-logo">
-						</a>
-					</div>
-					<div class="column-auto" style="padding-left: 10px;">
-						<span>Tipalti</span>
-					</div>
-					<div class="w-100 align-right">
-						<span>Full-Stack Software Developer</span>
-					</div>
-				</div>
-				<hr>
-				<div class="card-content">
-					<ul>
-						<li>Lead development of a windows application (Tipalti Connect) designed to sync incoming and outgoing data with multiple ERP systems using XAML, C# .Net Framework, and SQLite.</li>
-						<li>Refactored the backend and re-designed the UI for Tipalti Connect.</li>
-						<li>Built an integration bundle in the Acumatica framework for importing and exporting data using Acumatica webhooks written in C# and Fluent BQL.</li>
-					</ul>
-				</div>
-				<div class="card-footer">
-					<span>October 2022 - Current | (Remote) Victoria BC, Canada</span>
-				</div>
-			</div>
-		</div>
-	</section>
+-->
+<!DOCTYPE html>
+	<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="https://kit.fontawesome.com/2a798994ea.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script>
+			$(function(){
+				let sectionIds = $('.sidebar-item-list a');
 
-	<div class="item-title">Colonial Countertops Ltd. / E. Roko Distributors - Software Developer</div>
-	<div class="row">
-		<div class="column">August 2020 - October 2022</div>
-		<div class="column align-right">Victoria BC, Canada</div>
+				sectionIds.each(function(i, e) {
+					$(this).on('click', function(){
+						setTimeout(()=> {
+							$('.sidebar-item').removeClass('active');
+							$(this).addClass('active');
+						},100);
+					});
+				});
+
+				$('.main-content').on('scroll', function(){
+					sectionIds.each(function(i, e){
+						var container = $(this).attr('href');
+						var containerOffset = $(container).offset().top; // container's top
+						var nextContainer = $(sectionIds[i+1]).attr('href')
+
+						if (i != sectionIds.length-1) {
+							// if this container isn't last container
+							var containerHeight = $(nextContainer).offset().top;
+						} else {
+							// last container's height will be outerHeight
+							var containerHeight = $(container).outerHeight();
+						}
+						var containerBottom = containerOffset + containerHeight;
+
+						var scrollPosition = $('.main-content').scrollTop();
+						if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
+							for (var j = i; j >= 0; j--) {
+								$(sectionIds[j]).removeClass('active');
+							}  
+							$(sectionIds[i]).addClass('active');
+						} 
+						else if (scrollPosition > containerBottom && scrollPosition > containerOffset){
+							for (var j = i; j >= 0; j--) {
+								$(sectionIds[j]).removeClass('active');
+							}  
+							$(sectionIds[i]).addClass('active');
+						} 
+						else if (scrollPosition == 0){
+							$('.sidebar-item').removeClass('active'); 
+							$(sectionIds[0]).addClass('active');
+						} else {
+							$(sectionIds[i]).removeClass('active');
+						}
+					});
+
+					// Get the header
+					var header = document.getElementById("myHeader");
+
+					// Get the offset position of the navbar
+					var sticky = header.offsetTop;
+					if (window.pageYOffset > sticky) {
+						header.classList.add("sticky");
+					} else {
+						header.classList.remove("sticky");
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<!-- Top bar -->
+	<div class="topbar">
+		<div class="topbar-content">
+			<h1>Alwien Dippenaar</h1>
+			<div class="topbar-item-list">
+				<div class="topbar-item">
+					<a href="https://www.linkedin.com/in/alwien-dippenaar/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+				</div>
+				<div class="topbar-item-divider"></div>
+				<div class="topbar-item">
+					<a href="https://github.com/alwiend" target="_blank"><i class="fa-brands fa-github"></i> Github</a>
+				</div>
+				<div class="topbar-item-divider"></div>
+				<div class="topbar-item">
+					<a href="tel:1-250-540-5648"><i class="fa-solid fa-mobile"></i> +1 (250) 540-5648</a>
+				</div>
+				<div class="topbar-item-divider"></div>
+				<div class="topbar-item">
+					<a href="mailto:alwien.dippenaar@hotmail.com"><i class="fa-solid fa-envelope"></i> alwien.dippenaar@hotmail.com</a>
+				</div>
+			</div>
+		</div>
+
+    </div>
+	
+	<div class="sidebar">
+        <div class="sidebar-item-list">
+			<a href="#About" class="sidebar-item active">
+				<i class="sidebar-item-icon fa-solid fa-user"></i>
+				<div class="sidebar-item-title">
+					About
+				</div>
+			</a>
+			<a href="#Experience" class="sidebar-item">
+				<i class="sidebar-item-icon fa-solid fa-building"></i>
+				<div class="sidebar-item-title">
+					Experience
+				</div>
+			</a>
+			<a href="#Projects" class="sidebar-item">
+				<i class="sidebar-item-icon fa-solid fa-folder-tree"></i>
+				<div class="sidebar-item-title">
+					Projects
+				</div>
+			</a>
+			<a href="#Education" class="sidebar-item">
+				<i class="sidebar-item-icon fa-solid fa-graduation-cap"></i>
+				<div class="sidebar-item-title">
+					Education
+				</div>
+			</a>
+			<a href="#Skills" class="sidebar-item">
+				<i class="sidebar-item-icon fa-solid fa-brain"></i>
+				<div class="sidebar-item-title">
+					Skills
+				</div>
+			</a>
+        </div>
+    </div>
+
+	<div class="main">
+		<div class="main-content">
+			<div class="section" id="About">
+				<div class="row section-header">
+					<div class="col text-center">
+						About
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div style="width: 80%; margin: auto; font-size: 24px;">
+							<p>
+								Proven and hardworking software engineer with a Computer Science degree focused on software engineering and 3+ years of experience. As a problem solver 
+								and creative thinker, I never dismiss an idea as impossible if it is attainable with knowledge, time, and effort. My long-term career goal is to work on 
+								a software platform with a large user base, a strong user experience/product and a collaborative team.
+							</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="section mt-1" id="Experience">
+				<div class="row section-header">
+					<div class="col text-center">
+						Experience
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col mt-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col-auto">
+										<a href="https://tipalti.com/" target="_blank">
+											<img alt="Tipalti Logo" src="assets/img/tipalti-logo.svg" class="img-logo">
+										</a>
+									</div>
+									<div class="col-auto" style="padding-left: 10px; align-content: center;">
+										<span>Tipalti</span>
+									</div>
+									<div class="col text-right" style="align-content: center;">
+										<span>Full-Stack Software Developer</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<ul>
+									<li>Lead development of a windows application (Tipalti Connect) designed to sync incoming and outgoing data with multiple ERP systems using XAML, C# .Net Framework, and SQLite.</li>
+									<li>Refactored the backend and re-designed the UI for Tipalti Connect.</li>
+									<li>Built an integration bundle in the Acumatica framework for importing and exporting data using Acumatica webhooks written in C# and Fluent BQL.</li>
+									<li><strong>Tools:</strong> C# .net, WPF, SQLite</li>
+								</ul>
+							</div>
+							<div class="card-footer">
+								<div class="row">
+									<div class="col">
+										<span><i class="fa-solid fa-timeline"></i> October 2022 - Current</span>
+									</div>
+									<div class="col text-right">
+										<span><i class="fa-solid fa-location-dot"></i> (Remote) Victoria BC, Canada</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mt-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col-auto">
+										<a href="https://colonialcountertops.com/" target="_blank">
+											<img alt="Colonial Countertops Logo" src="assets/img/colonial-logo.svg" class="img-logo">
+										</a>
+									</div>
+									<div class="col-auto" style="padding-left: 10px; align-content: center;">
+										<span>Colonial Countertops Ltd.</span>
+									</div>
+									<div class="col text-right" style="align-content: center;">
+										<span>Full-Stack Software Developer</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<ul>
+									<li>Lead web application development of 5 separate applications using C# .Net MVC Framework, Razer Pages, HTML/CSS/JavaScript, MySQL, and Epicor ERP</li>
+									<li>Build RESTful APIs that serve an automation for a trucking scheduler to ensure successful shipments for 9 separate Branches</li>
+									<li>Source code management, oversee code releases, analyze data/user feedback to improve the software system, and perform documentation writing</li>
+									<li>Integrate web applications with the Epicor ERP REST API to automate and provide a platform to analyze data effectively</li>
+									<li><strong>Tools:</strong> C# .Net MVC Framework, Razor Pages, SQL Server, JavaScript, and REST API</li>
+								</ul>
+							</div>
+							<div class="card-footer">
+								<div class="row">
+									<div class="col">
+										<span><i class="fa-solid fa-timeline"></i> August 2020 - October 2022</span>
+									</div>
+									<div class="col text-right">
+										<span><i class="fa-solid fa-location-dot"></i> Victoria BC, Canada</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section mt-1" id="Projects">
+				<div class="row section-header">
+					<div class="col text-center">
+						Projects
+					</div>
+				</div>
+			</div>
+			<div class="section mt-1" id="Education">
+				<div class="row section-header">
+					<div class="col text-center">
+						Education
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mt-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col-auto">
+										<a href="https://www.uvic.ca/" target="_blank">
+											<img alt="UVIC Logo" src="assets/img/uvic-logo.png" class="img-logo">
+										</a>
+									</div>
+									<div class="col-auto" style="padding-left: 10px; align-content: center;">
+										<span>University of Victoria</span>
+									</div>
+									<div class="col text-right" style="align-content: center;">
+										<span>Bachelor of Science</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<p><strong>Major:</strong> Computer Science, Focus in Software Engineering</p>
+								<p><strong>GPA:</strong> 3.0/4.0</p>
+								<p class="mt-1"><strong>Relevant Coursework:</strong></p>
+								<ul>
+									<li>Data Structures and Algorithms</li>
+									<li>Operating Systems</li>
+									<li>Database Systems</li>
+									<li>Computer Communications and Networks</li>
+									<li>Security Engineering</li>
+									<li>Software System Scalability</li>
+									<li>Social and Professional Issues</li>
+								</ul>
+							</div>
+							<div class="card-footer">
+								<div class="row">
+									<div class="col">
+										<span><i class="fa-solid fa-timeline"></i> 2015 - 2020</span>
+									</div>
+									<div class="col text-right">
+										<span><i class="fa-solid fa-location-dot"></i> Victoria BC, Canada</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section mt-1" id="Skills">
+				<div class="row section-header">
+					<div class="col text-center">
+						Skills
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mt-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col text-center" style="align-content: center;">
+										<span>Languages and Databases</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-2 d-end">
+										<img src="assets/img/csharp-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">C-Sharp</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/java-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">Java</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/python-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">Python</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/javascript-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">JavaScript</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/xaml-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">XAML</span>
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-2 d-end">
+										<img src="assets/img/sqlite-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">SQLite</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/sqlserver-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">SQL Server</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mt-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col text-center" style="align-content: center;">
+										<span>Libraries</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-2 d-end">
+										<img src="assets/img/ef-logo.svg" class="img-logo-lg">
+										<span class="d-block text-middle">Entity Framework Core</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/jquery-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">jQuery</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mt-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col text-center" style="align-content: center;">
+										<span>Frameworks</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-2 d-end">
+										<img src="assets/img/netcore-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">.Net Core</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/blazor-logo.png" class="img-logo-lg">
+										<span class="d-block text-middle">Razor Pages</span>
+									</div>
+									<div class="col-2 d-end">
+										<img src="assets/img/bootstrap-logo.svg" class="img-logo-lg">
+										<span class="d-block text-middle">Bootstrap</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mt-1 mb-1">
+						<div class="card center">
+							<div class="card-header">
+								<div class="row text-center">
+									<div class="col text-center" style="align-content: center;">
+										<span>Other</span>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col">
+										<div class="row">
+											<div class="col-2 d-end">
+												<img src="assets/img/html-logo.png" class="img-logo-lg">
+												<span class="d-block text-middle">HTML5</span>
+											</div>
+											<div class="col-2 d-end">
+												<img src="assets/img/css-logo.png" class="img-logo-lg">
+												<span class="d-block text-middle">CSS3</span>
+											</div>
+											<div class="col-2 d-end">
+												<img src="assets/img/git-logo.png" class="img-logo-lg">
+												<span class="d-block text-middle">Git</span>
+											</div>
+											<div class="col-2 d-end">
+												<img src="assets/img/restapi-logo.png" class="img-logo-lg">
+												<span class="d-block text-middle">REST API</span>
+											</div>
+											<div class="col-2 d-end">
+												<img src="assets/img/amazons3-logo.png" class="img-logo-lg">
+												<span class="d-block text-middle">Amazon S3</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="bullet-list">
-		<ul>
-			<li>Lead web application development of 5 separate applications using C# .Net MVC Framework, Razer Pages, HTML/CSS/JavaScript, MySQL, and Epicor ERP</li>
-			<li>Build RESTful APIs that serve an automation for a trucking scheduler to ensure successful shipments for 9 separate Branches</li>
-			<li>Source code management, oversee code releases, analyze data/user feedback to improve the software system, and perform documentation writing</li>
-			<li>Integrate web applications with the Epicor ERP REST API to automate and provide a platform to analyze data effectively</li>
-		</ul>
-	</div>
-	<hr />
-	<div class="section-heading">Projects</div>
-	<div class="item-title">Stock Day Trading System - University of Victoria Major Project Component</div>
-	<div class="item-desc">The purpose of this major project component was to learn and demonstrate how to build a software system that is scalable and distributed</div>
-	<div class="bullet-list">
-		<ul>
-			<li>Built with C# .Net, HTML/CSS, JavaScript, Redis, MySQL, and Docker</li>
-			<li>Microservice architecture to enable load balancing of different user actions</li>
-			<li>Called an external (simulated) stock quoting service with REST API, stored result in Redis cache and refetched after specific duration of time</li>
-			<li>Stored Procedures to handle costly database actions</li>
-		</ul>
-	</div>
-	<hr />
-	<div class="section-heading">Education</div>
-	<div class="item-title">University of Victoria - Bachelors of Science, Computer Science</div>
-	<div class="row">
-		<div class="column">2015 - 2020</div>
-		<div class="column align-right">Victoria BC, Canada</div>
-	</div>
-	<hr />
-	<div class="section-heading">Skills</div>
-	<div class="bullet-list">
-		<ul>
-			<li>C# .Net, Java, Python, and C</li>
-			<li>JavaScript (ES6)</li>
-			<li>Docker</li>
-			<li>Database (MySQL, T-SQL, MongoDB)</li>
-			<li>HTML/CSS</li>
-			<li>Internet Information Services (IIS)</li>
-		</ul>
-	</div>
-</div><!-- /.blurb -->
+</html>
